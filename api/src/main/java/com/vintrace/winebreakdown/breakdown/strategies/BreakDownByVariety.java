@@ -3,8 +3,8 @@ package com.vintrace.winebreakdown.breakdown.strategies;
 import com.vintrace.winebreakdown.breakdown.model.BreakDown;
 import com.vintrace.winebreakdown.breakdown.model.BreakDownElement;
 import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
-import com.vintrace.winebreakdown.wine.Wine;
-import com.vintrace.winebreakdown.wine.WineComponent;
+import com.vintrace.winebreakdown.storage.model.Wine;
+import com.vintrace.winebreakdown.storage.model.WineComponent;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

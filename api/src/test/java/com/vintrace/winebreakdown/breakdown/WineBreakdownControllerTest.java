@@ -1,10 +1,13 @@
-package com.vintrace.winebreakdown;
+package com.vintrace.winebreakdown.breakdown;
 
-import com.vintrace.winebreakdown.wine.Wine;
-import com.vintrace.winebreakdown.wine.WineComponent;
-import com.vintrace.winebreakdown.wine.WineRepository;
+import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
+import com.vintrace.winebreakdown.storage.model.Wine;
+import com.vintrace.winebreakdown.storage.model.WineComponent;
+import com.vintrace.winebreakdown.storage.WineRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,41 +34,49 @@ class WineBreakdownControllerTest {
     private MockMvc mvc;
 
     @BeforeEach
-    public void before() {
+    public void beforeEach() {
         List<WineComponent> components = Arrays.asList(
-                new WineComponent(40, 2011, "Pinot Noir", "Mornington"),
-                new WineComponent(40, 2010, "Pinot Noir", "Macedon"),
-                new WineComponent(20, 2010, "Chardonnay", "Macedon")
+                new WineComponent(40.0, 2011, "Pinot Noir", "Mornington"),
+                new WineComponent(40.0, 2010, "Pinot Noir", "Macedon"),
+                new WineComponent(20.0, 2010, "Chardonnay", "Macedon")
         );
-        Wine wine = new Wine("1337WFS", components);
+        Wine wine = new Wine("1337WFS", "", "Best wine ever!!", "tankCode", "state", "owner", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
     }
 
     @Test
-    public void requestBreakDownByYear_ReturnComponents() throws Exception {
+    public void requestBreakDownByYear_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '60', key: '2010' }, { percentage: '40', key: '2011' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByVariety_ReturnComponents() throws Exception {
+    public void requestBreakDownByVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: '80', key: 'Pinot Noir' }, { percentage: '20', key: 'Chardonnay' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByRegion_ReturnComponents() throws Exception {
+    public void requestBreakDownByRegion_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/region/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '60', key: 'Macedon' }, { percentage: '40', key: 'Mornington' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByYearVariety_ReturnComponents() throws Exception {
+    public void requestBreakDownByYearVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year-variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'year-variety', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
+    }
+
+    @ParameterizedTest
+    @EnumSource(BreakDownType.class)
+    public void requestForNonExistingWine_returnsNotFound(BreakDownType type) throws Exception {
+        mvc.perform(get("/api/breakdown/" + type + "/NonExistingWine"))
+                .andExpect(status().isNotFound())
+                .andExpect(status().reason("breakdown not available for NonExistingWine"));
     }
 }
