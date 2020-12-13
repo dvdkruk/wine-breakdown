@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WineBreakdownController {
 
     @GetMapping("/api/breakdown/year/{lotCode}")
-    public void breakdownByYear(@PathVariable String lotCode) {
-
+    public BreakDownDTO breakdownByYear(@PathVariable String lotCode) {
+        return new BreakDownDTO(BreakDownType.YEAR);
     }
 }
