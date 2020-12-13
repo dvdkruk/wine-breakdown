@@ -20,11 +20,6 @@ public class WineBreakdownController {
         this.repository = repository;
     }
 
-    private static BreakDownElementDTO convertToByYearElements(WineComponent component) {
-        String percentage = DecimalFormat.getNumberInstance().format(component.getPercentage());
-        return new BreakDownElementDTO(percentage);
-    }
-
     @GetMapping("/api/breakdown/year/{lotCode}")
     public BreakDownDTO breakdownByYear(@PathVariable String lotCode) {
         Wine wine = repository.getByLotCode(lotCode).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
@@ -33,5 +28,10 @@ public class WineBreakdownController {
                 .map(WineBreakdownController::convertToByYearElements)
                 .collect(Collectors.toList());
         return new BreakDownDTO(BreakDownType.YEAR, elements);
+    }
+
+    private static BreakDownElementDTO convertToByYearElements(WineComponent component) {
+        String percentage = DecimalFormat.getNumberInstance().format(component.getPercentage());
+        return new BreakDownElementDTO(percentage);
     }
 }

@@ -35,6 +35,6 @@ class WineBreakdownControllerTest {
 
         mvc.perform(get("/api/breakdown/year/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '51' }, { percentage: '49' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '51', key: '2010' }, { percentage: '49', key: '2011 } ] }"));
     }
 }
