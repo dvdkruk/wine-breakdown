@@ -1,13 +1,14 @@
 package com.vintrace.winebreakdown;
 
-import com.vintrace.winebreakdown.breakdown.BreakDownService;
+import com.vintrace.winebreakdown.wine.Wine;
+import com.vintrace.winebreakdown.wine.WineComponent;
+import com.vintrace.winebreakdown.wine.WineRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
@@ -29,16 +30,19 @@ class WineBreakdownControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @Test
-    public void requestBreakDownByYear_ReturnComponents() throws Exception {
+    @BeforeEach
+    public void before() {
         List<WineComponent> components = Arrays.asList(
-                new WineComponent(40, 2011, ""),
-                new WineComponent(40, 2010, ""),
-                new WineComponent(20, 2010, "")
+                new WineComponent(40, 2011, "Pinot Noir"),
+                new WineComponent(40, 2010, "Pinot Noir"),
+                new WineComponent(20, 2010, "Chardonnay")
         );
         Wine wine = new Wine("1337WFS", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
+    }
 
+    @Test
+    public void requestBreakDownByYear_ReturnComponents() throws Exception {
         mvc.perform(get("/api/breakdown/year/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '60', key: '2010' }, { percentage: '40', key: '2011' } ] }"));
@@ -46,14 +50,7 @@ class WineBreakdownControllerTest {
 
     @Test
     public void requestBreakDownByVariety_ReturnComponents() throws Exception {
-        List<WineComponent> components = Arrays.asList(
-                new WineComponent(80, 2011, "Pinot Noir"),
-                new WineComponent(20, 2010, "Chardonnay")
-        );
-        Wine wine = new Wine("VAR1337TST", components);
-        when(repository.getByLotCode("VAR1337TST")).thenReturn(Optional.of(wine));
-
-        mvc.perform(get("/api/breakdown/variety/VAR1337TST"))
+        mvc.perform(get("/api/breakdown/variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: '80', key: 'Pinot Noir' }, { percentage: '20', key: 'Chardonnay' } ] }"));
     }

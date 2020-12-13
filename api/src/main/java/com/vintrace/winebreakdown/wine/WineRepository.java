@@ -1,4 +1,6 @@
-package com.vintrace.winebreakdown;
+package com.vintrace.winebreakdown.wine;
+
+import com.vintrace.winebreakdown.wine.Wine;
 
 import java.util.Optional;
 

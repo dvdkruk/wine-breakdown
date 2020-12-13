@@ -1,8 +1,6 @@
-package com.vintrace.winebreakdown.web;
+package com.vintrace.winebreakdown.config;
 
-import com.vintrace.winebreakdown.BreakDownType;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 

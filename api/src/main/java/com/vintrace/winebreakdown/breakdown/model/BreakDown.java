@@ -1,13 +1,13 @@
-package com.vintrace.winebreakdown;
+package com.vintrace.winebreakdown.breakdown.model;
 
 import java.util.List;
 
-public class BreakDownDTO {
+public class BreakDown {
 
     private final BreakDownType breakDownType;
-    private final List<BreakDownElementDTO> breakdown;
+    private final List<BreakDownElement> breakdown;
 
-    public BreakDownDTO(BreakDownType breakDownType, List<BreakDownElementDTO> elements) {
+    public BreakDown(BreakDownType breakDownType, List<BreakDownElement> elements) {
         this.breakDownType = breakDownType;
         this.breakdown = elements;
     }
@@ -16,7 +16,7 @@ public class BreakDownDTO {
         return breakDownType;
     }
 
-    public List<BreakDownElementDTO> getBreakdown() {
+    public List<BreakDownElement> getBreakdown() {
         return breakdown;
     }
 }

@@ -1,11 +1,11 @@
-package com.vintrace.winebreakdown;
+package com.vintrace.winebreakdown.breakdown.model;
 
-public class BreakDownElementDTO {
+public class BreakDownElement {
 
     private final String percentage;
     private final String key;
 
-    public BreakDownElementDTO(String percentage, String key) {
+    public BreakDownElement(String percentage, String key) {
         this.percentage = percentage;
         this.key = key;
     }

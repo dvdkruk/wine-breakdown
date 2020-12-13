@@ -1,4 +1,4 @@
-package com.vintrace.winebreakdown;
+package com.vintrace.winebreakdown.breakdown.model;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

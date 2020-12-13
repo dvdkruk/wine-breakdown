@@ -1,16 +1,15 @@
 package com.vintrace.winebreakdown.breakdown;
 
-import com.vintrace.winebreakdown.*;
+import com.vintrace.winebreakdown.breakdown.model.BreakDown;
+import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
+import com.vintrace.winebreakdown.breakdown.strategies.BreakDownStrategy;
+import com.vintrace.winebreakdown.wine.Wine;
+import com.vintrace.winebreakdown.wine.WineRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.text.DecimalFormat;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class BreakDownService {
@@ -23,7 +22,7 @@ public class BreakDownService {
         this.strategies = strategies;
     }
 
-    public BreakDownDTO getBreakDown(String lotCode, BreakDownType breakdownType) {
+    public BreakDown getBreakDown(String lotCode, BreakDownType breakdownType) {
         BreakDownStrategy strategy = strategies.stream()
                 .filter(s -> s.getType() == breakdownType)
                 .findFirst()
