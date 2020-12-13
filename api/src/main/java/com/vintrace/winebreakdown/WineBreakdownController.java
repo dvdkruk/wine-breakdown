@@ -1,5 +1,6 @@
 package com.vintrace.winebreakdown;
 
+import com.vintrace.winebreakdown.breakdown.BreakDownService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,24 +15,14 @@ import java.util.stream.Collectors;
 @RestController
 public class WineBreakdownController {
 
-    private final WineRepository repository;
+    private final BreakDownService service;
 
-    public WineBreakdownController(WineRepository repository) {
-        this.repository = repository;
+    public WineBreakdownController(BreakDownService service) {
+        this.service = service;
     }
 
-    @GetMapping("/api/breakdown/year/{lotCode}")
-    public BreakDownDTO breakdownByYear(@PathVariable String lotCode) {
-        Wine wine = repository.getByLotCode(lotCode).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        List<BreakDownElementDTO> elements = wine.getComponents().stream()
-                .sorted(Comparator.comparingDouble(WineComponent::getPercentage).reversed())
-                .map(WineBreakdownController::convertToByYearElements)
-                .collect(Collectors.toList());
-        return new BreakDownDTO(BreakDownType.YEAR, elements);
-    }
-
-    private static BreakDownElementDTO convertToByYearElements(WineComponent component) {
-        String percentage = DecimalFormat.getNumberInstance().format(component.getPercentage());
-        return new BreakDownElementDTO(percentage, component.getYear().toString());
+    @GetMapping("/api/breakdown/{breakdownType}/{lotCode}")
+    public BreakDownDTO breakdownByYear(@PathVariable String lotCode, @PathVariable BreakDownType breakdownType) {
+        return service.getBreakDown(lotCode, breakdownType);
     }
 }

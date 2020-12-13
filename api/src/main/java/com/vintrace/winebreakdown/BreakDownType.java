@@ -3,7 +3,8 @@ package com.vintrace.winebreakdown;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum BreakDownType {
-    YEAR;
+    YEAR,
+    VARIETY;
 
     @JsonValue
     public String getJsonValue() {
