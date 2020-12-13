@@ -1,4 +1,4 @@
-package com.vintrace.winebreakdown.storage.model;
+package com.vintrace.api.storage.model;
 
 import java.util.List;
 

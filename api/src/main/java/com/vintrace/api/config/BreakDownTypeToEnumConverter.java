@@ -1,6 +1,6 @@
-package com.vintrace.winebreakdown.config;
+package com.vintrace.api.config;
 
-import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
+import com.vintrace.api.breakdown.model.BreakDownType;
 import org.springframework.core.convert.converter.Converter;
 
 public class BreakDownTypeToEnumConverter implements Converter<String, BreakDownType> {

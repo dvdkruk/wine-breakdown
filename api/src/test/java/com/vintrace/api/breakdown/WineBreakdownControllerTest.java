@@ -1,9 +1,9 @@
-package com.vintrace.winebreakdown.breakdown;
+package com.vintrace.api.breakdown;
 
-import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
-import com.vintrace.winebreakdown.storage.model.Wine;
-import com.vintrace.winebreakdown.storage.model.WineComponent;
-import com.vintrace.winebreakdown.storage.WineRepository;
+import com.vintrace.api.breakdown.model.BreakDownType;
+import com.vintrace.api.storage.model.Wine;
+import com.vintrace.api.storage.model.WineComponent;
+import com.vintrace.api.storage.WineRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

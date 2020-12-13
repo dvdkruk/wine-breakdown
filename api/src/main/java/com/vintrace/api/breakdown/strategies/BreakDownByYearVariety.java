@@ -1,10 +1,10 @@
-package com.vintrace.winebreakdown.breakdown.strategies;
+package com.vintrace.api.breakdown.strategies;
 
-import com.vintrace.winebreakdown.breakdown.model.BreakDown;
-import com.vintrace.winebreakdown.breakdown.model.BreakDownElement;
-import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
-import com.vintrace.winebreakdown.storage.model.Wine;
-import com.vintrace.winebreakdown.storage.model.WineComponent;
+import com.vintrace.api.breakdown.model.BreakDown;
+import com.vintrace.api.breakdown.model.BreakDownElement;
+import com.vintrace.api.breakdown.model.BreakDownType;
+import com.vintrace.api.storage.model.Wine;
+import com.vintrace.api.storage.model.WineComponent;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

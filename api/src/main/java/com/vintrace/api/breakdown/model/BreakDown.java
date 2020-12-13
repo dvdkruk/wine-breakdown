@@ -1,4 +1,4 @@
-package com.vintrace.winebreakdown.breakdown.model;
+package com.vintrace.api.breakdown.model;
 
 import java.util.List;
 

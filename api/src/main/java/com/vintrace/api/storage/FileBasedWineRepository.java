@@ -1,7 +1,7 @@
-package com.vintrace.winebreakdown.storage;
+package com.vintrace.api.storage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vintrace.winebreakdown.storage.model.Wine;
+import com.vintrace.api.storage.model.Wine;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Repository
 class FileBasedWineRepository implements WineRepository {
+
+    private final ObjectMapper mapper = new ObjectMapper();
 
     @Override
     public Optional<Wine> getByLotCode(String lotCode) {
@@ -29,7 +31,7 @@ class FileBasedWineRepository implements WineRepository {
         }
 
         try {
-            Wine wine = new ObjectMapper().readValue(file, Wine.class);
+            Wine wine = mapper.readValue(file, Wine.class);
             return Optional.of(wine);
         } catch (IOException e) {
             throw new RuntimeException(e);

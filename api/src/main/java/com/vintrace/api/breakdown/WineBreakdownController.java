@@ -1,7 +1,7 @@
-package com.vintrace.winebreakdown.breakdown;
+package com.vintrace.api.breakdown;
 
-import com.vintrace.winebreakdown.breakdown.model.BreakDown;
-import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
+import com.vintrace.api.breakdown.model.BreakDown;
+import com.vintrace.api.breakdown.model.BreakDownType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;

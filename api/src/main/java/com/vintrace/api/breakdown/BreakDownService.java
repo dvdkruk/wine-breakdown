@@ -1,10 +1,10 @@
-package com.vintrace.winebreakdown.breakdown;
+package com.vintrace.api.breakdown;
 
-import com.vintrace.winebreakdown.breakdown.model.BreakDown;
-import com.vintrace.winebreakdown.breakdown.model.BreakDownType;
-import com.vintrace.winebreakdown.breakdown.strategies.BreakDownStrategy;
-import com.vintrace.winebreakdown.storage.model.Wine;
-import com.vintrace.winebreakdown.storage.WineRepository;
+import com.vintrace.api.breakdown.model.BreakDown;
+import com.vintrace.api.breakdown.model.BreakDownType;
+import com.vintrace.api.breakdown.strategies.BreakDownStrategy;
+import com.vintrace.api.storage.model.Wine;
+import com.vintrace.api.storage.WineRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

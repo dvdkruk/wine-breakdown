@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.vintrace</groupId>
-	<artifactId>wine-breakdown</artifactId>
+	<artifactId>wine-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>wine-breakdown</name>
+	<name>wine-api</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
