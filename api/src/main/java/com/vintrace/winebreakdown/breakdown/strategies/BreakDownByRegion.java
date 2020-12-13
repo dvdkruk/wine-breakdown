@@ -14,19 +14,19 @@ import static java.text.NumberFormat.getNumberInstance;
 import static java.util.stream.Collectors.*;
 
 @Component
-class BreakDownByYear implements BreakDownStrategy {
+public class BreakDownByRegion implements BreakDownStrategy {
     @Override
     public BreakDownType getType() {
-        return BreakDownType.YEAR;
+        return BreakDownType.REGION;
     }
 
     @Override
     public BreakDown convert(Wine wine) {
         List<BreakDownElement> elements = wine.getComponents().stream()
-                .collect(groupingBy(WineComponent::getYear, summingDouble(WineComponent::getPercentage)))
+                .collect(groupingBy(WineComponent::getRegion, summingDouble(WineComponent::getPercentage)))
                 .entrySet().stream()
-                .sorted(Map.Entry.<Integer, Double>comparingByValue().reversed())
-                .map(kv -> new BreakDownElement(getNumberInstance().format(kv.getValue()), kv.getKey().toString()))
+                .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                .map(kv -> new BreakDownElement(getNumberInstance().format(kv.getValue()), kv.getKey()))
                 .collect(toList());
         return new BreakDown(getType(), elements);
     }

@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum BreakDownType {
     YEAR,
-    VARIETY;
+    VARIETY,
+    REGION;
 
     @JsonValue
     public String getJsonValue() {

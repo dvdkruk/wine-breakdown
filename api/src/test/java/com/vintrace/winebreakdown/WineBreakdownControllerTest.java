@@ -33,9 +33,9 @@ class WineBreakdownControllerTest {
     @BeforeEach
     public void before() {
         List<WineComponent> components = Arrays.asList(
-                new WineComponent(40, 2011, "Pinot Noir"),
-                new WineComponent(40, 2010, "Pinot Noir"),
-                new WineComponent(20, 2010, "Chardonnay")
+                new WineComponent(40, 2011, "Pinot Noir", "Mornington"),
+                new WineComponent(40, 2010, "Pinot Noir", "Macedon"),
+                new WineComponent(20, 2010, "Chardonnay", "Macedon")
         );
         Wine wine = new Wine("1337WFS", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
@@ -53,5 +53,19 @@ class WineBreakdownControllerTest {
         mvc.perform(get("/api/breakdown/variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: '80', key: 'Pinot Noir' }, { percentage: '20', key: 'Chardonnay' } ] }"));
+    }
+
+    @Test
+    public void requestBreakDownByRegion_ReturnComponents() throws Exception {
+        mvc.perform(get("/api/breakdown/region/1337WFS"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '60', key: 'Macedon' }, { percentage: '40', key: 'Mornington' } ] }"));
+    }
+
+    @Test
+    public void requestBreakDownByYearVariety_ReturnComponents() throws Exception {
+        mvc.perform(get("/api/breakdown/year-variety/1337WFS"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
     }
 }
