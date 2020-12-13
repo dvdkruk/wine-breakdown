@@ -66,6 +66,6 @@ class WineBreakdownControllerTest {
     public void requestBreakDownByYearVariety_ReturnComponents() throws Exception {
         mvc.perform(get("/api/breakdown/year-variety/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'year-variety', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
     }
 }

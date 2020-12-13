@@ -3,12 +3,19 @@ package com.vintrace.winebreakdown.breakdown.model;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum BreakDownType {
-    YEAR,
-    VARIETY,
-    REGION;
+    YEAR("year"),
+    VARIETY("variety"),
+    REGION("region"),
+    YEAR_VARIETY("year-variety");
+
+    private final String name;
+
+    BreakDownType(String name) {
+        this.name = name;
+    }
 
     @JsonValue
     public String getJsonValue() {
-        return this.name().toLowerCase();
+        return this.name.toLowerCase();
     }
 }
