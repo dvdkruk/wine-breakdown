@@ -12,6 +12,7 @@ import java.util.Optional;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest(WineBreakdownController.class)
@@ -32,8 +33,8 @@ class WineBreakdownControllerTest {
         Wine wine = new Wine("1337WFS", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
 
-
         mvc.perform(get("/api/breakdown/year/1337WFS"))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(content().json("{ breakDownType: 'year' }"));
     }
 }
