@@ -3,9 +3,9 @@ package com.vintrace.winebreakdown;
 public class WineComponent {
 
     private final double percentage;
-    private final int year;
+    private final Integer year;
 
-    public WineComponent(double percentage, int year) {
+    public WineComponent(double percentage, Integer year) {
 
         this.percentage = percentage;
         this.year = year;
@@ -15,7 +15,7 @@ public class WineComponent {
         return percentage;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 }

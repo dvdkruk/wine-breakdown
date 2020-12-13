@@ -32,6 +32,6 @@ public class WineBreakdownController {
 
     private static BreakDownElementDTO convertToByYearElements(WineComponent component) {
         String percentage = DecimalFormat.getNumberInstance().format(component.getPercentage());
-        return new BreakDownElementDTO(percentage);
+        return new BreakDownElementDTO(percentage, component.getYear().toString());
     }
 }
