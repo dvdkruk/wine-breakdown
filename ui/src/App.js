@@ -1,24 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import icon from './ICON.png';
+import searchIcon from './searchIcon.png';
+
+function Search() {
+  
+  updateAutoComplete(event) {
+    console.log(event.target.value);
+  }
+
+  return (
+    <div className="Search-frame">
+      <img src={searchIcon} className="Search-icon" alt="icon"/>
+      <input type="text" onChange={this.updateAutoComplete} />
+    </div>
+  )
+}
+
+function WineSearch() {
+  return (
+    <div className="WineSearch-frame">
+      <div className="WineSearch-header-frame">
+        <header className="WineSearch-header">Wine search</header> 
+        <div className="WineSearch-icon-box">
+          <img src={icon} className="WineSearch-icon" alt="icon"/>
+        </div>
+      </div>
+      <Search/>
+    </div>
+    
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WineSearch/>
   );
 }
 

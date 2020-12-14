@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+.WineSearch-frame {
+  max-width: 624px;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.WineSearch-header-frame {
+  margin: auto;
+  width: 199px;
+  height: 65px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.WineSearch-header {
+  font-size: 26px;
+  width: 162px;
+  float: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.WineSearch-icon {
+  height: 26px;
+  width: 16px;
+}
+
+.WineSearch-icon-box {
+  height: 32px;
+  width: 32px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Search-frame {
+  width: 100%;
+  height: 48px;
+  background: #FFFFFF;
+  border: 1px solid #E8E8E8;
+  border-radius: 2px;
+}
+
+.Search-icon {
+  width: 24px;
+  height: 24px;
 }
