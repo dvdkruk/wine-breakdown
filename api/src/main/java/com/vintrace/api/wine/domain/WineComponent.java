@@ -1,4 +1,4 @@
-package com.vintrace.api.storage.model;
+package com.vintrace.api.wine.domain;
 
 public class WineComponent {
 

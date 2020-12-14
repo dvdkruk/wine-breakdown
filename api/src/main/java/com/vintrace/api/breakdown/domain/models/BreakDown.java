@@ -1,4 +1,4 @@
-package com.vintrace.api.breakdown.model;
+package com.vintrace.api.breakdown.domain.models;
 
 import java.util.List;
 

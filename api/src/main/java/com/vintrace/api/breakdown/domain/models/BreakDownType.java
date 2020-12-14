@@ -1,4 +1,4 @@
-package com.vintrace.api.breakdown.model;
+package com.vintrace.api.breakdown.domain.models;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
@@ -16,6 +16,6 @@ public enum BreakDownType {
 
     @JsonValue
     public String getJsonValue() {
-        return this.name.toLowerCase();
+        return this.name;
     }
 }
