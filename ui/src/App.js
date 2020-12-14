@@ -3,15 +3,10 @@ import icon from './ICON.png';
 import searchIcon from './searchIcon.png';
 
 function Search() {
-  
-  updateAutoComplete(event) {
-    console.log(event.target.value);
-  }
-
   return (
     <div className="Search-frame">
       <img src={searchIcon} className="Search-icon" alt="icon"/>
-      <input type="text" onChange={this.updateAutoComplete} />
+      <input type="text" />
     </div>
   )
 }
