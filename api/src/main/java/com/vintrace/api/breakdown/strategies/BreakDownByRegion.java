@@ -14,7 +14,7 @@ import static java.text.NumberFormat.getNumberInstance;
 import static java.util.stream.Collectors.*;
 
 @Component
-public class BreakDownByRegion implements BreakDownStrategy {
+class BreakDownByRegion implements BreakDownStrategy {
     @Override
     public BreakDownType getType() {
         return BreakDownType.REGION;

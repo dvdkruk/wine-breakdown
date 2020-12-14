@@ -14,7 +14,7 @@ import static java.text.NumberFormat.getNumberInstance;
 import static java.util.stream.Collectors.*;
 
 @Component
-public class BreakDownByYearVariety implements BreakDownStrategy {
+class BreakDownByYearVariety implements BreakDownStrategy {
     @Override
     public BreakDownType getType() {
         return BreakDownType.YEAR_VARIETY;

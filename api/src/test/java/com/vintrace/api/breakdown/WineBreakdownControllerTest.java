@@ -45,28 +45,28 @@ class WineBreakdownControllerTest {
     }
 
     @Test
-    public void requestBreakDownByYear_ReturnBreakdown() throws Exception {
+    void requestBreakDownByYear_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '60', key: '2010' }, { percentage: '40', key: '2011' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByVariety_ReturnBreakdown() throws Exception {
+    void requestBreakDownByVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: '80', key: 'Pinot Noir' }, { percentage: '20', key: 'Chardonnay' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByRegion_ReturnBreakdown() throws Exception {
+    void requestBreakDownByRegion_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/region/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '60', key: 'Macedon' }, { percentage: '40', key: 'Mornington' } ] }"));
     }
 
     @Test
-    public void requestBreakDownByYearVariety_ReturnBreakdown() throws Exception {
+    void requestBreakDownByYearVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year-variety/1337WFS"))
                 .andExpect(status().isOk())
                 .andExpect(content().json("{ breakDownType: 'year-variety', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
@@ -74,7 +74,7 @@ class WineBreakdownControllerTest {
 
     @ParameterizedTest
     @EnumSource(BreakDownType.class)
-    public void requestForNonExistingWine_returnsNotFound(BreakDownType type) throws Exception {
+    void requestForNonExistingWine_returnsNotFound(BreakDownType type) throws Exception {
         mvc.perform(get("/api/breakdown/" + type + "/NonExistingWine"))
                 .andExpect(status().isNotFound())
                 .andExpect(status().reason("breakdown not available for NonExistingWine"));
