@@ -37,8 +37,12 @@ class FileBasedWineRepository implements WineRepository {
     @Override
     public List<Wine> findByLotCodeContainingOrDescriptionContaining(String query) {
         return wines.stream()
-                .filter(wine -> wine.getLotCode().contains(query) || wine.getDescription().contains(query))
+                .filter(wine -> contains(wine.getLotCode(), query) || contains(wine.getDescription(), query))
                 .collect(Collectors.toList());
+    }
+
+    private boolean contains(String value, String query) {
+        return value != null && value.contains(query);
     }
 
     private void loadFiles() throws IOException {
