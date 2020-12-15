@@ -13,8 +13,11 @@ export default function SearchBar() {
   return (
     <div className="SearchBar-frame">
       <div className="SearchInput-frame">
-        <img src={searchIcon} className="Search-icon" alt="icon" />
-        <input type="text" onChange={autoComplete} />
+        <div className="SearchInput-left">
+          <img src={searchIcon} className="Search-icon left" alt="icon" />
+          <input type="text" onChange={autoComplete} className="SearchInput-input" placeholder="Search by lot code and description......" />
+        </div>
+        
       </div>
         <SearchResults results={results} />
     </div>

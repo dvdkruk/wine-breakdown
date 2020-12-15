@@ -44,9 +44,12 @@
   height: 48px;
 }
 
+input { box-shadow: none }
+
 .Search-icon {
   width: 24px;
   height: 24px;
+  padding: 12px 8px 12px 12px;
 }
 
 .SearchResult {
@@ -80,5 +83,11 @@
   border-top: 1px solid lightgray;
 }
 
+.SearchInput-input {
+  width: 238px;
+}
 
-
+.SearchInput-left {
+  display: flex;
+  align-items: center
+}

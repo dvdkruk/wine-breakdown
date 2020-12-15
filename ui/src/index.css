@@ -14,3 +14,12 @@ code {
   font-family: Montserrat, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+input {
+  font-family: Montserrat;
+  border: none;
+}
