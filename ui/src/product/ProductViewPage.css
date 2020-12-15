@@ -1,0 +1,10 @@
+.ProductViewPage-frame {
+  max-width: 768px;
+  margin: auto;
+  margin-top: 142px;
+}
+
+.ProductViewHeader-icon {
+    width: 30px;
+    height: 30px;
+}
