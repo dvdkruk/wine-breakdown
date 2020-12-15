@@ -4,6 +4,11 @@
   margin-top: 142px;
 }
 
+.ProductViewHeader-frame {
+    display: grid;
+    grid-template-columns: 90% 9%;
+}
+
 .ProductViewHeader-icon {
     width: 30px;
     height: 30px;

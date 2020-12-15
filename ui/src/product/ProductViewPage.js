@@ -1,26 +1,29 @@
 import './ProductViewPage.css'
 import Icon from './Icon.png'
 import { useParams, useHistory } from "react-router-dom";
+import ProductBreakdown from './ProductBreakdown';
 
 export default function ProductViewPage() {
     const { lotCode } = useParams();
     const history = useHistory();
 
     return (
-      <div className="ProductViewPage-frame">
-        <div className="ProductViewHeader-frame">
-            <div className="left">
-                <div onClick={history.goBack}><i class="material-icons">arrow_back</i></div>
+        <div className="ProductViewPage-frame">
+            <div className="ProductViewHeader-frame">
                 <div>
-                    <div className="left"><img src={Icon} className="ProductViewHeader-icon" alt="Product icon"/></div>
-                    <h2>{lotCode}</h2>
+                    <div onClick={history.goBack}><i class="material-icons">arrow_back</i></div>
+                    <div>
+                        <img src={Icon} className="ProductViewHeader-icon left" alt="Product icon" />
+                        <h2>{lotCode}</h2>
+                    </div>
+                    <div>description</div>
                 </div>
-                <div>description</div>
+                <div className="right">
+                    edit
+                </div>
             </div>
-            <div className="right">
-                edit
-            </div>
+            <ProductBreakdown lotCode={lotCode} />
         </div>
-      </div>
     );
-  }
+}
+
