@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import searchIcon from './searchIcon.png';
 import findWines from './findWines';
+import { useHistory } from "react-router-dom";
 
 export default function SearchBar() {
   const [results, setResults] = useState([]);
@@ -25,14 +26,20 @@ export default function SearchBar() {
 }
 
 function SearchResult({result: wine}) {
+  const history = useHistory();
+
+  function click() {
+    history.push(`/product/${wine.lotCode}`)
+  }
+
   return (
-    <div className="SearchResult SearchResult-divider">
+    <div className="SearchResult SearchResult-divider" onClick={click}>
       <div className="left">
         <div className="SearchResult-primary">{wine.lotCode}</div>
-        <div className="SearchResult-secondary">{wine.volume}</div>
+        <div className="SearchResult-secondary">{wine.description}</div>
       </div>
       <div className="right">
-        <div className="SearchResult-secondary">{wine.desciption}</div>
+        <div className="SearchResult-secondary">{wine.volume}</div>
         <div className="SearchResult-secondary">{wine.tankCode}</div>
       </div>
     </div>);
