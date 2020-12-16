@@ -20,7 +20,7 @@ export default function ProductBreakdown({ lotCode }) {
     return (
         <div>
             <BreakdownSelector options={breakdownOptions} onSelection={setbreakdownType} select={breakdownType} />
-            <table>
+            <table className="BreakdownTable">
                 <thead>
                     <tr>
                         <th>{breakdownType.displayName}</th>

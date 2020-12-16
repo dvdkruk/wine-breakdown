@@ -38,3 +38,29 @@
 .active {
     border-bottom: 2px solid lightblue;
 }
+
+.BreakdownTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;  
+}
+
+.BreakdownTable,
+.BreakdownTable tr {
+    border: 1px solid #E8E8E8;
+}
+
+.BreakdownTable td, 
+.BreakdownTable th {
+    padding: 16px;
+}
+
+.BreakdownTable th {
+    text-align: left;
+}
+
+.BreakdownTable th:last-child,
+.BreakdownTable td:last-child
+{
+    text-align: right;
+}
