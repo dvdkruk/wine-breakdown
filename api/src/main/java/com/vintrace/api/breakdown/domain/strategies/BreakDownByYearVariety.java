@@ -23,11 +23,11 @@ class BreakDownByYearVariety implements BreakDownStrategy {
     @Override
     public BreakDown convert(Wine wine) {
         List<BreakDownElement> elements = wine.getComponents().stream()
-            .collect(groupingBy(c -> c.getYear() + " - " + c.getVariety(), summingDouble(WineComponent::getPercentage)))
-            .entrySet().stream()
-            .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
-            .map(kv -> new BreakDownElement(getNumberInstance().format(kv.getValue()), kv.getKey()))
-            .collect(toList());
+                .collect(groupingBy(c -> c.getYear() + " - " + c.getVariety(), summingDouble(WineComponent::getPercentage)))
+                .entrySet().stream()
+                .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
+                .map(kv -> new BreakDownElement(getNumberInstance().format(kv.getValue()), kv.getKey()))
+                .collect(toList());
         return new BreakDown(getType(), elements);
     }
 }

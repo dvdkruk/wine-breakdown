@@ -7,7 +7,8 @@ public class WineComponent {
     private String variety;
     private String region;
 
-    public WineComponent() { }
+    public WineComponent() {
+    }
 
     public WineComponent(Double percentage, Integer year, String variety, String region) {
         this.percentage = percentage;

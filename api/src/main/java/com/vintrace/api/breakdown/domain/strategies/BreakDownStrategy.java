@@ -6,5 +6,6 @@ import com.vintrace.api.wine.domain.models.Wine;
 
 public interface BreakDownStrategy {
     BreakDownType getType();
+
     BreakDown convert(Wine wine);
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 class WineController {
@@ -22,7 +21,7 @@ class WineController {
     public WineController(
             SearchByLotCodeOrDescriptionUseCase searchByLotCodeOrDescriptionUseCase,
             GetWineByLotCodeUseCase getWineByLotCodeUseCase
-    ){
+    ) {
         this.searchByLotCodeOrDescriptionUseCase = searchByLotCodeOrDescriptionUseCase;
         this.getWineByLotCodeUseCase = getWineByLotCodeUseCase;
     }

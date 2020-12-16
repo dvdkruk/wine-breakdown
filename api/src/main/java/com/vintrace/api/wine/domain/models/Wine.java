@@ -12,7 +12,8 @@ public class Wine {
     private String ownerName;
     private List<WineComponent> components;
 
-    public Wine() { }
+    public Wine() {
+    }
 
     public Wine(
             String lotCode,
