@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Wine Search",
+  "name": "Wine Search App",
   "icons": [
     {
       "src": "favicon.ico",
