@@ -63,7 +63,8 @@ class WineControllerTest {
         when(repository.getByLotCode("L0TC0D3")).thenReturn(Optional.empty());
 
         mvc.perform(get("/api/wines/L0TC0D3"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isNotFound())
+                .andExpect(status().reason("No wine found for lot code L0TC0D3"));
     }
 
 }
