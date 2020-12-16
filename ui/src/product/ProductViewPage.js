@@ -29,12 +29,24 @@ export default function ProductViewPage() {
                     edit
                 </div>
             </div>
-            <table>
+            <table className="ProductDetails">
                 <tbody>
-                    <tr><td>Volume</td><td>{product.volume}</td></tr>
-                    <tr><td>Tank code</td><td>{product.tankCode}</td></tr>
-                    <tr><td>Product state</td><td>{product.productState}</td></tr>
-                    <tr><td>Owner</td><td>{product.ownerName}</td></tr>
+                    <tr>
+                        <td>Volume</td>
+                        <td className="ProductDetails-value">{product.volume}</td>
+                    </tr>
+                    <tr>
+                        <td>Tank code</td>
+                        <td className="ProductDetails-value">{product.tankCode}</td>
+                    </tr>
+                    <tr>
+                        <td>Product state</td>
+                        <td className="ProductDetails-value">{product.productState}</td>
+                    </tr>
+                    <tr>
+                        <td>Owner</td>
+                        <td className="ProductDetails-value">{product.ownerName}</td>
+                    </tr>
                 </tbody>
             </table>
             <ProductBreakdown lotCode={lotCode} />

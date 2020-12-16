@@ -13,3 +13,11 @@
     width: 30px;
     height: 30px;
 }
+
+.ProductDetails {
+    width: 100%;
+}
+
+.ProductDetails-value {
+    text-align: right;
+}
