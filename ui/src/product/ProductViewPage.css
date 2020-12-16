@@ -21,3 +21,20 @@
 .ProductDetails-value {
     text-align: right;
 }
+
+.BreakdownSelector {
+    height: 40px;
+    display: flex;
+}
+
+.BreakdownOption {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 14px;
+    float: left;
+}
+
+.active {
+    border-bottom: 2px solid lightblue;
+}
