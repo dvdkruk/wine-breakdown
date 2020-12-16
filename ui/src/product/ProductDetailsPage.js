@@ -25,9 +25,6 @@ export default function ProductDetailsPage() {
                     </div>
                     <p>{product.description}</p>
                 </div>
-                <div className="right">
-                    edit
-                </div>
             </div>
             <table className="ProductDetails">
                 <tbody>
@@ -55,6 +52,6 @@ export default function ProductDetailsPage() {
 }
 
 function BackButton({ onClick }) {
-    return <div onClick={onClick}><i className="material-icons">arrow_back</i></div>;
+    return <a href="#back" className="BackButton material-icons" onClick={onClick}>arrow_back</a>;
 }
 
