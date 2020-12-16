@@ -5,14 +5,15 @@ import './search.css'
 
 export default function WineSearchPage() {
   return (
-    <div className="WineSearch-frame">
-      <div className="WineSearch-header-frame">
-        <header className="WineSearch-header">Wine search</header> 
-        <div className="WineSearch-icon-box">
-          <img src={icon} className="WineSearch-icon" alt="icon"/>
+    <div className="WineSearchPage">
+      <div className="WineSearchHeader">
+        <header className="HeaderTitle">Wine search</header> 
+        <div className="HeaderIconContainer">
+          <img src={icon} className="HeaderIcon" alt="icon"/>
         </div>
       </div>
       <SearchBar/>
     </div>
   )
 }
+ 

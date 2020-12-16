@@ -1,10 +1,10 @@
-.WineSearch-frame {
+.WineSearchPage {
     max-width: 624px;
     margin: auto;
     margin-top: 142px;
 }
 
-.WineSearch-header-frame {
+.WineSearchHeader {
     margin: auto;
     width: 199px;
     height: 65px;
@@ -13,18 +13,18 @@
     align-items: center;
 }
 
-.WineSearch-header {
+.HeaderTitle {
     font-size: 26px;
     width: 162px;
     float: left;
 }
 
-.WineSearch-icon {
+.HeaderIconContainer {
     height: 26px;
     width: 16px;
 }
 
-.WineSearch-icon-box {
+.HeaderIconContainer {
     height: 32px;
     width: 32px;
     float: right;
