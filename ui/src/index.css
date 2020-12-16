@@ -23,4 +23,5 @@ input:focus, textarea:focus, select:focus{
 input {
   font-family: Montserrat;
   border: none;
+  box-shadow: none;
 }

@@ -1,4 +1,3 @@
-import './App.css';
 import WineSearchPage from './search/WineSearchPage'
 import ProductDetailsPage from './product/ProductDetailsPage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
