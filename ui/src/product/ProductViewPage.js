@@ -11,7 +11,7 @@ export default function ProductViewPage() {
         <div className="ProductViewPage-frame">
             <div className="ProductViewHeader-frame">
                 <div>
-                    <div onClick={history.goBack}><i class="material-icons">arrow_back</i></div>
+                    <div onClick={() => history.push("/")}><i className="material-icons">arrow_back</i></div>
                     <div>
                         <img src={Icon} className="ProductViewHeader-icon left" alt="Product icon" />
                         <h2>{lotCode}</h2>
