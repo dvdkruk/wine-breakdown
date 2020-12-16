@@ -16,7 +16,7 @@ export default function ProductBreakdown({ lotCode }) {
             .then(({ breakdown }) => setbreakdown(breakdown))
     }, [breakdownType.key, lotCode])
 
-    const breakdownElemtents = breakdown.map(e => <tr key={e.key}><td>{e.key}</td><td>{e.percentage}</td></tr>);
+    const breakdownElemtents = breakdown.map(e => <tr key={e.key}><td>{e.key}</td><td>{e.percentage}%</td></tr>);
     return (
         <div>
             <BreakdownSelector options={breakdownOptions} onSelection={setbreakdownType} select={breakdownType} />
@@ -39,12 +39,12 @@ function BreakdownSelector({ options, onSelection, select }) {
     return (
         <div className="BreakdownSelector">
             {options.map(option => {
-                return <div
+                return <a href={`#${option.key}`}
                     className={`BreakdownOption ${option.key === select.key ? 'active' : ''}`}
                     key={option.key}
                     onClick={() => onSelection(option)}>
                     {option.displayName}
-                </div>
+                </a>
             })}
         </div>
     );

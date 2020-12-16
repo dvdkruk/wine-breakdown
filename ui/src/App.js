@@ -1,6 +1,6 @@
 import './App.css';
 import WineSearchPage from './search/WineSearchPage'
-import ProductViewPage from './product/ProductViewPage'
+import ProductDetailsPage from './product/ProductDetailsPage'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/product/:lotCode"><ProductViewPage /></Route>
+          <Route path="/product/:lotCode"><ProductDetailsPage /></Route>
           <Route path="/"><WineSearchPage /></Route>
         </Switch>
       </Router>

@@ -1,15 +1,15 @@
-.ProductViewPage-frame {
+.ProductDetailsPage {
   max-width: 768px;
   margin: auto;
   margin-top: 142px;
 }
 
-.ProductViewHeader-frame {
+.ProductDetailsHeader {
     display: grid;
     grid-template-columns: 90% 9%;
 }
 
-.ProductViewHeader-icon {
+.ProductIcon {
     width: 30px;
     height: 30px;
 }
@@ -33,10 +33,19 @@
     align-items: center;
     padding: 0 14px;
     float: left;
+    text-decoration: none;
+    font-size: 14px;
+    color: gray;
+}
+
+.BreakdownOption:hover {
+    border-bottom: 2px solid lightblue;
+    color: lightblue;
 }
 
 .active {
-    border-bottom: 2px solid lightblue;
+    border-bottom: 2px solid darkcyan;
+    color: darkcyan;
 }
 
 .BreakdownTable {

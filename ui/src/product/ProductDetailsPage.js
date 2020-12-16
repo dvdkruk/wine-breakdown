@@ -1,11 +1,11 @@
-import './ProductViewPage.css'
+import './product.css'
 import Icon from './Icon.png'
 import { useParams, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import ProductBreakdown from './ProductBreakdown';
 import fetchWine from './fetchWine';
 
-export default function ProductViewPage() {
+export default function ProductDetailsPage() {
     const { lotCode } = useParams();
     const history = useHistory();
     const [product, setProduct] = useState({});
@@ -15,12 +15,12 @@ export default function ProductViewPage() {
     }, [lotCode])
 
     return (
-        <div className="ProductViewPage-frame">
-            <div className="ProductViewHeader-frame">
+        <div className="ProductDetailsPage">
+            <div className="ProductDetailsHeader">
                 <div>
                     <BackButton onClick={() => history.push("/")} />
                     <div>
-                        <img src={Icon} className="ProductViewHeader-icon left" alt="Product icon" />
+                        <img src={Icon} className="ProductIcon left" alt="Product icon" />
                         <h2>{lotCode}</h2>
                     </div>
                     <p>{product.description}</p>
@@ -33,7 +33,7 @@ export default function ProductViewPage() {
                 <tbody>
                     <tr>
                         <td>Volume</td>
-                        <td className="ProductDetails-value">{product.volume}</td>
+                        <td className="ProductDetails-value">{product.volume} L</td>
                     </tr>
                     <tr>
                         <td>Tank code</td>
