@@ -1,6 +1,6 @@
 package com.vintrace.api.wine.storage;
 
-import com.vintrace.api.wine.domain.Wine;
+import com.vintrace.api.wine.domain.models.Wine;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;

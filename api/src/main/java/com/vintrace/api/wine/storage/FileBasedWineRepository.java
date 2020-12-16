@@ -1,15 +1,12 @@
 package com.vintrace.api.wine.storage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vintrace.api.wine.domain.Wine;
+import com.vintrace.api.wine.domain.models.Wine;
 import com.vintrace.api.wine.domain.WineRepository;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Repository;
 
-import javax.annotation.PostConstruct;
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

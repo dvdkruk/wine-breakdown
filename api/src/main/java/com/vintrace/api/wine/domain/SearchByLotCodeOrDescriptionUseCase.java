@@ -1,5 +1,6 @@
 package com.vintrace.api.wine.domain;
 
+import com.vintrace.api.wine.domain.models.Wine;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

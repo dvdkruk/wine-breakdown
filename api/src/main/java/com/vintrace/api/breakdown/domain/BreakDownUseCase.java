@@ -3,7 +3,7 @@ package com.vintrace.api.breakdown.domain;
 import com.vintrace.api.breakdown.domain.models.BreakDown;
 import com.vintrace.api.breakdown.domain.models.BreakDownType;
 import com.vintrace.api.breakdown.domain.strategies.BreakDownStrategy;
-import com.vintrace.api.wine.domain.Wine;
+import com.vintrace.api.wine.domain.models.Wine;
 import com.vintrace.api.wine.domain.WineRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

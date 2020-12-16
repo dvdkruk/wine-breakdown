@@ -1,4 +1,4 @@
-package com.vintrace.api.wine.domain;
+package com.vintrace.api.wine.domain.models;
 
 import java.util.List;
 
