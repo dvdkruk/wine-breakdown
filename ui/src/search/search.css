@@ -47,6 +47,10 @@
     align-items: center
 }
 
+.SearchInput {
+    width: 238px;
+}
+
 .SearchIcon {
     width: 24px;
     height: 24px;
@@ -78,8 +82,4 @@
     height: 18px;
     font-size: 13px;
     color: gray;
-}
-
-.SearchInput {
-    width: 238px;
 }
