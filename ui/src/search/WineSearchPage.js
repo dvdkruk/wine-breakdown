@@ -1,6 +1,6 @@
 import React from 'react';
-import icon from './ICON.png';
-import SearchBar from './SearchBar';
+import icon from './components/ICON.png';
+import SearchBar from './components/SearchBar';
 
 export default function WineSearchPage() {
   return (

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import fetchBreakdown from './fetchBreakdown'
+import fetchBreakdown from '../fetchBreakdown'
 
 export default function ProductBreakdown({ lotCode }) {
     const breakdownOptions = [

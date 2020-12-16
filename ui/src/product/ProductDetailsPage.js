@@ -1,8 +1,8 @@
 import './product.css'
-import Icon from './Icon.png'
+import Icon from './components/Icon.png'
 import { useParams, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
-import ProductBreakdown from './ProductBreakdown';
+import ProductBreakdown from './components/ProductBreakdown';
 import fetchWine from './fetchWine';
 
 export default function ProductDetailsPage() {

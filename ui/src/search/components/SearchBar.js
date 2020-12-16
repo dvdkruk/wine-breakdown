@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import searchIcon from './searchIcon.png';
-import findWines from './findWines';
+import findWines from '../findWines';
 import { useHistory } from "react-router-dom";
 
 export default function SearchBar() {
