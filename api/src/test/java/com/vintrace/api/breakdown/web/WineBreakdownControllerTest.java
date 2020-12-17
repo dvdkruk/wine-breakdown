@@ -40,7 +40,7 @@ class WineBreakdownControllerTest {
                 new WineComponent(40.0, 2010, "Pinot Noir", "Macedon"),
                 new WineComponent(20.0, 2010, "Chardonnay", "Macedon")
         );
-        Wine wine = new Wine("1337WFS", "", "Best wine ever!!", "tankCode", "state", "owner", components);
+        Wine wine = new Wine("1337WFS", 0d, "Best wine ever!!", "tankCode", "state", "owner", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
     }
 

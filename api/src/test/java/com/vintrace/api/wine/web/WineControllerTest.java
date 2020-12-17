@@ -29,13 +29,13 @@ class WineControllerTest {
 
     @Test
     void searchWines_returnsWines() throws Exception {
-        Wine wine = new Wine("TST", "123", "2010 - best wine", "TAN8", "state", "owner", Collections.emptyList());
+        Wine wine = new Wine("TST", 123d, "2010 - best wine", "TAN8", "state", "owner", Collections.emptyList());
         when(repository.findByLotCodeContainingOrDescriptionContaining("TST"))
             .thenReturn(Collections.singletonList(wine));
 
         mvc.perform(get("/api/wines").param("search", "TST"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ wines: [ { lotCode: 'TST', volume: '123', tankCode: 'TAN8', description: '2010 - best wine', productState: 'state', ownerName: 'owner' } ] }"));
+                .andExpect(content().json("{ wines: [ { lotCode: 'TST', volume: 123, tankCode: 'TAN8', description: '2010 - best wine', productState: 'state', ownerName: 'owner' } ] }"));
     }
 
     @Test
@@ -50,12 +50,12 @@ class WineControllerTest {
 
     @Test
     void getWine_returnsWine() throws Exception {
-        Wine wine = new Wine("TST", "123", "2010 - best wine", "TAN8", "state", "owner", Collections.emptyList());
+        Wine wine = new Wine("TST", 123d, "2010 - best wine", "TAN8", "state", "owner", Collections.emptyList());
         when(repository.getByLotCode("L0TC0D3")).thenReturn(Optional.of(wine));
 
         mvc.perform(get("/api/wines/L0TC0D3"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ lotCode: 'TST', volume: '123', tankCode: 'TAN8', description: '2010 - best wine', productState: 'state', ownerName: 'owner' }"));
+                .andExpect(content().json("{ lotCode: 'TST', volume: 123, tankCode: 'TAN8', description: '2010 - best wine', productState: 'state', ownerName: 'owner' }"));
     }
 
     @Test

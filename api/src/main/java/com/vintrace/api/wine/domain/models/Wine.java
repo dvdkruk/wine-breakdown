@@ -5,7 +5,7 @@ import java.util.List;
 public class Wine {
 
     private String lotCode;
-    private String volume;
+    private Double volume;
     private String description;
     private String tankCode;
     private String productState;
@@ -17,7 +17,7 @@ public class Wine {
 
     public Wine(
             String lotCode,
-            String volume,
+            Double volume,
             String description,
             String tankCode,
             String productState,
@@ -49,11 +49,11 @@ public class Wine {
         this.components = components;
     }
 
-    public String getVolume() {
+    public Double getVolume() {
         return volume;
     }
 
-    public void setVolume(String volume) {
+    public void setVolume(Double volume) {
         this.volume = volume;
     }
 
