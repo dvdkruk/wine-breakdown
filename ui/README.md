@@ -15,3 +15,12 @@ Web UI to de display wine product details.
 ### Executing build release
 1. Run `yarn build`.
 2. The production build will be in the `build` folder.
+
+## Design
+The project is structured by features. Every feature has a `Page` module that composes the feature and it dependencies. Communication with the back-end server is handle via service modules that are follow the pattern `fetch*.js`. More broken down UI elements are located in the `components` in each feature folder.
+
+Possible improvements that can be made:
+- Improve the styling of the UI to conform better with the figma mockups.
+- Implement tests for ctricital components.
+- CI/CD pipeline
+- Apply atomic design for common components, so library can be build of reusable components.
