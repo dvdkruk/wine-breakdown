@@ -75,12 +75,17 @@
 }
 
 .BackButton {
-    text-decoration: none;
+    all: unset;
     color: black;
+    cursor: pointer;
+}
+.BackButton:hover {
+    color: lightblue;
 }
 
 .ShowMoreButton {
     all: unset;
+    cursor: pointer;
     font-size: 11px;
     color: gray;
 }

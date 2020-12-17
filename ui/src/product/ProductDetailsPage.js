@@ -52,6 +52,6 @@ export default function ProductDetailsPage() {
 }
 
 function BackButton({ onClick }) {
-    return <a href="#back" className="BackButton material-icons" onClick={onClick}>arrow_back</a>;
+    return <button className="BackButton" onClick={onClick}><i className="material-icons">arrow_back</i></button>;
 }
 
