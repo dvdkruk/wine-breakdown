@@ -39,7 +39,7 @@ class FileBasedWineRepository implements WineRepository {
     }
 
     private boolean contains(String value, String query) {
-        return value != null && value.contains(query);
+        return value != null && value.toLowerCase().contains(query.toLowerCase());
     }
 
     private List<Wine> loadWinesFrom(String location) throws IOException {

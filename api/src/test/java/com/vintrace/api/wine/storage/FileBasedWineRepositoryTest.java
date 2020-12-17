@@ -2,6 +2,8 @@ package com.vintrace.api.wine.storage;
 
 import com.vintrace.api.wine.domain.models.Wine;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -28,15 +30,17 @@ class FileBasedWineRepositoryTest {
         assertFalse(wine.isPresent());
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"TST", "tst"})
     void findByLotCodeContainingOrDescriptionContaining_forLotCodeMatch() {
         List<Wine> wines = repository.findByLotCodeContainingOrDescriptionContaining("TST");
         assertEquals(1, wines.size());
     }
 
-    @Test
-    void findByLotCodeContainingOrDescriptionContaining_forDescriptionMatch() {
-        List<Wine> wines = repository.findByLotCodeContainingOrDescriptionContaining("Test");
+    @ParameterizedTest
+    @ValueSource(strings = {"Test", "test"})
+    void findByLotCodeContainingOrDescriptionContaining_forDescriptionMatch(String query) {
+        List<Wine> wines = repository.findByLotCodeContainingOrDescriptionContaining(query);
         assertEquals(1, wines.size());
     }
 
