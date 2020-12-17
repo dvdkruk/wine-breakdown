@@ -83,3 +83,7 @@
     font-size: 13px;
     color: gray;
 }
+
+mark {
+    background-color: lightcyan;
+}
