@@ -2,19 +2,19 @@ package com.vintrace.api.wine.storage;
 
 import com.vintrace.api.wine.domain.models.Wine;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest(classes = FileBasedWineRepository.class)
 class FileBasedWineRepositoryTest {
 
-    private final FileBasedWineRepository repository = new FileBasedWineRepository();
-
-    FileBasedWineRepositoryTest() throws IOException {
-    }
+    @Autowired
+    private FileBasedWineRepository repository;
 
     @Test
     void getByLotCode_forExistingWine() {

@@ -1,0 +1,2 @@
+location:
+  wines: 'classpath:data/*.json'

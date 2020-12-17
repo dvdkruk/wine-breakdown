@@ -1,13 +1,13 @@
 package com.vintrace.api.wine.storage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vintrace.api.wine.domain.models.Wine;
 import com.vintrace.api.wine.domain.WineRepository;
+import com.vintrace.api.wine.domain.models.Wine;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +18,10 @@ class FileBasedWineRepository implements WineRepository {
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-    private final List<Wine> wines = new ArrayList<>();
+    private final List<Wine> wines;
 
-    public FileBasedWineRepository() throws IOException {
-        loadFiles();
+    public FileBasedWineRepository(@Value("${location.wines}") String location) throws IOException {
+        wines = loadWinesFrom(location);
     }
 
     @Override
@@ -42,8 +42,8 @@ class FileBasedWineRepository implements WineRepository {
         return value != null && value.contains(query);
     }
 
-    private void loadFiles() throws IOException {
-        Arrays.stream(resolver.getResources("classpath:data/*.json"))
+    private List<Wine> loadWinesFrom(String location) throws IOException {
+        return Arrays.stream(resolver.getResources(location))
                 .map(resource -> {
                     try {
                         return mapper.readValue(resource.getFile(), Wine.class);
@@ -51,6 +51,6 @@ class FileBasedWineRepository implements WineRepository {
                         e.printStackTrace();
                     }
                     return null;
-                }).forEach(this.wines::add);
+                }).collect(Collectors.toList());
     }
 }
