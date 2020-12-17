@@ -78,3 +78,21 @@
     text-decoration: none;
     color: black;
 }
+
+.ShowMoreButton {
+    all: unset;
+    font-size: 11px;
+    color: gray;
+}
+
+.ShowMoreButton i {
+    font-size: 11px;
+}
+
+.ShowMoreButton:hover {
+    color: lightblue;
+}
+
+.ShowMoreButtonRow td {
+    text-align: center !important;
+}

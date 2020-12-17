@@ -9,30 +9,57 @@ export default function ProductBreakdown({ lotCode }) {
         { key: "year-variety", displayName: "Year & Variety" },
     ]
     const [breakdownType, setbreakdownType] = useState(breakdownOptions[0]);
-    const [breakdown, setbreakdown] = useState([]);
+    const [breakdown, setBreakdown] = useState([]);
 
     useEffect(() => {
         fetchBreakdown(lotCode, breakdownType.key)
-            .then(({ breakdown }) => setbreakdown(breakdown))
+            .then(({ breakdown }) => setBreakdown(breakdown))
     }, [breakdownType.key, lotCode])
 
-    const breakdownElemtents = breakdown.map(e => <tr key={e.key}><td>{e.key}</td><td>{e.percentage}%</td></tr>);
     return (
         <div>
             <BreakdownSelector options={breakdownOptions} onSelection={setbreakdownType} select={breakdownType} />
-            <table className="BreakdownTable">
-                <thead>
-                    <tr>
-                        <th>{breakdownType.displayName}</th>
-                        <th>Percentage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {breakdownElemtents}
-                </tbody>
-            </table>
+            <BreakdownTable displayType={breakdownType.displayName} breakdown={breakdown} />
         </div>
     );
+}
+
+function BreakdownTable({ displayType, breakdown }) {
+    const [elements, setElements] = useState([]);
+    const [displayLimit, setDisplayLimit] = useState(5);
+    const showMoreActive = displayLimit < elements.length;
+
+    if (elements !== breakdown) {
+        setElements(breakdown);
+        setDisplayLimit(5);
+    }
+
+    function showMore() {
+        setDisplayLimit(displayLimit + 5)
+    }
+
+    return <table className="BreakdownTable">
+        <thead>
+            <tr>
+                <th>{displayType}</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {elements.slice(0, displayLimit).map(element => <BreakdownElement key={element.key} element={element} />)}
+            {showMoreActive ?
+                <tr className="ShowMoreButtonRow">
+                    <td colSpan="2">
+                        <button onClick={showMore} className="ShowMoreButton">Show more <i className="material-icons">expand_more</i></button>
+                    </td>
+                </tr>
+                : ""}
+        </tbody>
+    </table>;
+}
+
+function BreakdownElement({ element }) {
+    return <tr><td>{element.key}</td><td>{element.percentage}%</td></tr>;
 }
 
 function BreakdownSelector({ options, onSelection, select }) {
