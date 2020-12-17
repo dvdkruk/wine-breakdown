@@ -1,18 +1,16 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import Highlighter from "react-highlight-words";
 
-export function SearchResult({ result: wine }) {
-    const history = useHistory();
-
-    function click() {
-        history.push(`/product/${wine.lotCode}`);
-    }
-
+export function SearchResult({ result: wine, highlight, onSelect }) {
     return (
-        <div className="SearchResult" onClick={click}>
+        <div className="SearchResult" onClick={() => onSelect(wine)}>
             <div className="left">
-                <div className="primary">{wine.lotCode}</div>
-                <div className="secondary">{wine.description}</div>
+                <div className="primary">
+                    <Highlighter textToHighlight={wine.lotCode} searchWords={[highlight]} />
+                </div>
+                <div className="secondary">
+                    <Highlighter textToHighlight={wine.description} searchWords={[highlight]} />
+                </div>
             </div>
             <div className="right">
                 <div className="secondary">{wine.volume}</div>
