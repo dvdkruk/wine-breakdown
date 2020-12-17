@@ -24,4 +24,4 @@ Possible improvements that can be made:
 - Implement tests for ctricital components.
 - Loading spinner when waiting for server responses
 - CI/CD pipeline
-- Apply atomic design for common components, so library can be build of reusable components.
+- Apply atomic design for common components (e.g. tables, buttons, heading, etc.), to build a library of reusable components.
