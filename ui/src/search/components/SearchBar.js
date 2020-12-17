@@ -15,7 +15,7 @@ export default function SearchBar() {
         <div className="SearchBar">
             <div className="SearchBarInputContainer">
                 <img src={searchIcon} className="SearchIcon" alt="icon" />
-                <input type="text" onChange={autoComplete} className="SearchInput" placeholder="Search by lot code and description......" />
+                <input autoFocus type="text" onChange={autoComplete} className="SearchInput" placeholder="Search by lot code and description......" />
             </div>
             <SearchResults results={results} />
         </div>
