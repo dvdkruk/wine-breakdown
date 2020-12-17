@@ -13,4 +13,4 @@ Web UI to de display wine product details.
 
 ### Executing build release
 1. Run `yarn build`
-2. The production bould will be in the `build` folder.
+2. The production build will be in the `build` folder.
