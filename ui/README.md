@@ -22,5 +22,6 @@ The project is structured by features. Every feature has a `Page` module that co
 Possible improvements that can be made:
 - Improve the styling of the UI to conform better with the figma mockups.
 - Implement tests for ctricital components.
+- Loading spinner when waiting for server responses
 - CI/CD pipeline
 - Apply atomic design for common components, so library can be build of reusable components.
