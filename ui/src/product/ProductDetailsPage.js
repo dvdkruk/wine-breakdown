@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import ProductBreakdown from './components/ProductBreakdown';
 import fetchWine from './fetchWine';
+import { BackButton } from './components/BackButton';
 
 export default function ProductDetailsPage() {
     const { lotCode } = useParams();
@@ -50,8 +51,3 @@ export default function ProductDetailsPage() {
         </div>
     );
 }
-
-function BackButton({ onClick }) {
-    return <button className="BackButton" onClick={onClick}><i className="material-icons">arrow_back</i></button>;
-}
-
