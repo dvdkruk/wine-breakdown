@@ -2,15 +2,15 @@ package com.vintrace.api.breakdown.domain.models;
 
 public class BreakDownElement {
 
-    private final String percentage;
+    private final Double percentage;
     private final String key;
 
-    public BreakDownElement(String percentage, String key) {
+    public BreakDownElement(Double percentage, String key) {
         this.percentage = percentage;
         this.key = key;
     }
 
-    public String getPercentage() {
+    public Double getPercentage() {
         return percentage;
     }
 

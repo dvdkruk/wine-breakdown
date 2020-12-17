@@ -36,9 +36,9 @@ class WineBreakdownControllerTest {
     @BeforeEach
     public void beforeEach() {
         List<WineComponent> components = Arrays.asList(
-                new WineComponent(40.0, 2011, "Pinot Noir", "Mornington"),
-                new WineComponent(40.0, 2010, "Pinot Noir", "Macedon"),
-                new WineComponent(20.0, 2010, "Chardonnay", "Macedon")
+                new WineComponent(40d, 2011, "Pinot Noir", "Mornington"),
+                new WineComponent(40d, 2010, "Pinot Noir", "Macedon"),
+                new WineComponent(20d, 2010, "Chardonnay", "Macedon")
         );
         Wine wine = new Wine("1337WFS", 0d, "Best wine ever!!", "tankCode", "state", "owner", components);
         when(repository.getByLotCode("1337WFS")).thenReturn(Optional.of(wine));
@@ -48,28 +48,28 @@ class WineBreakdownControllerTest {
     void requestBreakDownByYear_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: '60', key: '2010' }, { percentage: '40', key: '2011' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'year', breakdown: [ { percentage: 60, key: '2010' }, { percentage: 40, key: '2011' } ] }"));
     }
 
     @Test
     void requestBreakDownByVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/variety/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: '80', key: 'Pinot Noir' }, { percentage: '20', key: 'Chardonnay' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'variety', breakdown: [ { percentage: 80, key: 'Pinot Noir' }, { percentage: 20, key: 'Chardonnay' } ] }"));
     }
 
     @Test
     void requestBreakDownByRegion_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/region/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: '60', key: 'Macedon' }, { percentage: '40', key: 'Mornington' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'region', breakdown: [ { percentage: 60, key: 'Macedon' }, { percentage: 40, key: 'Mornington' } ] }"));
     }
 
     @Test
     void requestBreakDownByYearVariety_ReturnBreakdown() throws Exception {
         mvc.perform(get("/api/breakdown/year-variety/1337WFS"))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{ breakDownType: 'year-variety', breakdown: [ { percentage: '40', key: '2011 - Pinot Noir' }, { percentage: '40', key: '2010 - Pinot Noir' }, { percentage: '20', key: '2010 - Chardonnay' } ] }"));
+                .andExpect(content().json("{ breakDownType: 'year-variety', breakdown: [ { percentage: 40, key: '2011 - Pinot Noir' }, { percentage: 40, key: '2010 - Pinot Noir' }, { percentage: 20, key: '2010 - Chardonnay' } ] }"));
     }
 
     @ParameterizedTest

@@ -26,7 +26,7 @@ class BreakDownByVariety implements BreakDownStrategy {
                 .collect(groupingBy(WineComponent::getVariety, summingDouble(WineComponent::getPercentage)))
                 .entrySet().stream()
                 .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
-                .map(kv -> new BreakDownElement(getNumberInstance().format(kv.getValue()), kv.getKey()))
+                .map(kv -> new BreakDownElement(kv.getValue(), kv.getKey()))
                 .collect(toList());
         return new BreakDown(getType(), elements);
     }
